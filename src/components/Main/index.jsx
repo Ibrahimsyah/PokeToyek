@@ -29,8 +29,6 @@ export default function Main() {
                     };
                 })
             ).then((result) => {
-                console.log(result);
-
                 setData(result);
             });
         });
