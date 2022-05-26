@@ -1,0 +1,34 @@
+.wrapper {
+   background-color: #3D315B;
+   color: white;
+   box-shadow: 1px 1px 10px black;
+}
+
+.container {
+    margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: .8em 1em;
+}
+
+.title {
+    font-size: 1.25em;
+    font-weight: bold;
+}
+
+.menu {
+    display: flex;
+
+    .item {
+        font-size: .8em;
+        margin: 0 .25em;
+        cursor: pointer;
+        transition: all .1s linear;
+
+        &:hover {
+            font-weight: bold;
+        }
+    }
+}
