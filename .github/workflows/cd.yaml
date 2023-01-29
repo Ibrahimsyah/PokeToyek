@@ -1,0 +1,28 @@
+name: test-cd
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Deploy to cloud server
+        uses: fifsky/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          user: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          port: 22
+          command: |
+            git clone https://github.com/Ibrahimsyah/PokeToyek
+            cd ~/PokeToyek
+            git pull origin master
+            npm install
+            npm run start
+          args: "-tt -vvv -noout -text"
